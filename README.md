@@ -2,7 +2,8 @@
 
 Git aracılıgı ile oyun kodlari ve goruntuleri yuklenmistir
 
-Bilgi edindigim bazi kaynaklar:
+BILGI EDINDIGIM BAZI KAYNAKLAR:
+
 readme dosyasi icin:
 
 https://youtu.be/VHbc1wQzBhA
