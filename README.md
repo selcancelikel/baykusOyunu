@@ -21,3 +21,7 @@ Oyun amacı:
  En son canı bittiginde ise oyun sonlanir.
 
 
+OYUN LINKINE BURDAN UALASABILIRSINIZ:
+
+http://selcancelikel.eu5.org/
+
