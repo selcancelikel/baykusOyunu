@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>document</title>
+</head>
+<!-- style="background-color: #2557A0;" background="gökyüzü.jpg" -->
+<body style="background-color: #2557A0;" background="gökyüzü.jpg">
+  <canvas id="canvas" width="900" height="600"></canvas>
+
+  <div style="text-align:center;width:480px; margin: auto; margin-top: 10px;">
+    
+
+    <p id="skor-tablosu" style="color: aliceblue; font-size: 50px;"></p>
+
+
+
+  </div>
+
+  <script>
+    
+
+
+
+
+
+
+    var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+//fotoğrafları src ile nesne haline getirmek için nesneleri kaynaklarıyla bağladım.
+
+var baykus = new Image();
+baykus.src = 'owl2.png';
+
+var baykus2 = new Image();
+baykus2.src = 'baykus2.png';
+
+
+var elma = new Image();
+elma.src = 'elma.png';
+
+var karpuz = new Image();
+karpuz.src = 'karpuz.png';
+
+var armut = new Image();
+armut.src = 'armut.png';
+
+var tabut = new Image();
+tabut.src = 'tabut.png';
+
+var tabut = new Image();
+tabut.src = 'tabut.png';
+
+var bulut = new Image();
+bulut.src = 'bulutdeneme.png';
+
+//nesnelerin hız degerleri
+
+var baykusX = 400;
+var baykusY = canvas.height - 50;
+var baykusSpeed = 10;
+var elmaSpeed = 1;
+var karpuzSpeed = 1;
+var armutSpeed = 1;
+
+//math random ile istediğim koordinatlar arasında olmasını sagladım.
+var elmaX = Math.floor(Math.random() * 400)+100;
+var elmaY = 10;
+
+var karpuzX = elmaX+500;
+var karpuzY = 40;
+
+var armutX =elmaX+250;
+var armutY = 70;
+
+//oyunu basında game_over degeri false eger oyuncu canını tamamen bitirirse true haline gelir.
+var game_over = false;
+
+//oyunda l skor 100 her meyveye carptıgında canı azalacak.
+var skor=100;
+
+
+function giris() {
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(baykus, baykusx, 300, 160, 150);
+  baykusx+=10;
+
+  if(baykusx>600){
+  // draw();
+
+  ctx.drawImage(bulut, baykusx+20, 250, 160, 150);
+
+
+  setTimeout(function() {
+      draw();
+      document.removeEventListener('keydown', handleKeyDown);
+    }, 2000); // 2 saniye sonra oyunu başlat
+  }
+
+  else 
+  requestAnimationFrame(giris
+);
+
+
+  
+
+}
+
+
+function basla() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  baykus.onload = function() {
+    baykusx=100
+    
+    giris
+  ();
+   
+  };
+}
+
+
+
+
+
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if((elmaX>100)&&(elmaX<700))
+  ;
+
+  else
+  elmaX=350;
+
+  if((karpuzX>100)&&(karpuzX<700))
+  ;
+
+  else
+  karpuzX=350;
+
+  if((armutX>100)&&(armutX<700))
+  ;
+
+  else
+  armutX=350;
+
+  var skorTablosu = document.getElementById("skor-tablosu");
+  skorTablosu.textContent = "KALAN CAN: " + skor;
+
+  ctx.drawImage(baykus, baykusX, baykusY, 160, 150);
+  ctx.drawImage(elma, elmaX, elmaY, 40, 40);
+  elmaX++;
+  ctx.drawImage(karpuz, karpuzX, karpuzY, 40, 40);
+  karpuzX--;
+
+  ctx.drawImage(armut, armutX, armutY, 50, 50);
+
+
+  // Baykuşun hareket ettir
+  baykusY -= baykusSpeed;
+  elmaY += elmaSpeed;
+  karpuzY += karpuzSpeed;
+  armutY += armutSpeed;
+
+
+  // Baykuşun ekrandan geçmesini kontrol et
+  if (baykusX + 160 < 0) {
+    baykusX = canvas.width;
+  } else if (baykusX > canvas.width) {
+    baykusX = -160;
+  }
+
+  if(baykusY===0){
+
+baykusY=canvas.height-100;
+elmaY=10;
+karpuzY=10;
+armutY=10;
+
+baykusX=Math.round((elmaX+karpuzX+armutX)/3);
+
+  }
+
+  // Çarpışma kontrolü
+  if (
+    baykusX < elmaX + 10 &&
+    baykusX + 160 > elmaX &&
+    baykusY < elmaY + 10 &&
+    baykusY + 150 > elmaY
+  ) {
+    skor--;
+    if(skor<1)
+game_over = true;
+
+else;
+  }
+
+  if (
+    baykusX < karpuzX + 10 &&
+    baykusX + 160 > karpuzX &&
+    baykusY < karpuzY + 10 &&
+    baykusY + 150 > karpuzY
+  ) {
+    skor--;
+    if(skor<1)
+game_over = true;
+
+else;
+  }
+
+  if (
+    baykusX < armutX + 10 &&
+    baykusX + 160 > armutX &&
+    baykusY < armutY + 10 &&
+    baykusY + 150 > armutY
+  ) {
+    skor--;
+    if(skor<1)
+game_over = true;
+
+else;
+
+  }
+
+
+
+
+
+
+
+  if (game_over) {
+
+   
+    speed=100;
+    bitis();
+    
+
+
+    
+    return;
+  }
+
+  requestAnimationFrame(draw);
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'ArrowLeft') {
+    baykusX -= 50;
+  } else if (event.key === 'ArrowRight') {
+    baykusX += 50;
+  }
+});
+
+// draw();
+basla();
+
+function bitis(){
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(tabut, 430, 350, 520, 330);
+    ctx.drawImage(baykus2, 510, speed, 320, 300);
+    var skorTablosu = document.getElementById("skor-tablosu");
+    skorTablosu.textContent = "KALAN CAN: " + 0;
+    speed=speed+10;
+
+    if(speed===260)
+    return;
+
+else
+    requestAnimationFrame(bitis);
+
+
+}
+
+
+
+    
+
+  </script>
+</body>
+</html>
