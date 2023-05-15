@@ -25,3 +25,6 @@ OYUN LINKINE BURDAN UALASABILIRSINIZ:
 
 http://selcancelikel.eu5.org/
 
+![oyungiris](https://github.com/selcancelikel/baykusOyunu/assets/95944187/7403ecde-0475-4cdd-aeb7-23e4bbab343c)
+
+
