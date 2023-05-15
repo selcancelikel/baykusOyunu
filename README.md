@@ -28,3 +28,10 @@ http://selcancelikel.eu5.org/
 ![oyungiris](https://github.com/selcancelikel/baykusOyunu/assets/95944187/7403ecde-0475-4cdd-aeb7-23e4bbab343c)
 
 
+![oyunoynanis](https://github.com/selcancelikel/baykusOyunu/assets/95944187/a69adfdd-2ae6-4db9-8eb7-3f29736e7749)
+
+![oyunson](https://github.com/selcancelikel/baykusOyunu/assets/95944187/e0a2e626-90a4-4423-ba5e-bba6e108ab79)
+
+
+
+
